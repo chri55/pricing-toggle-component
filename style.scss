@@ -1,0 +1,343 @@
+$primary-gradient: linear-gradient(to bottom right, hsl(236, 72%, 79%) 0%,  hsl(237, 63%, 64%) 80%);
+$purple: hsl(237, 63%, 64%);
+
+$v-lite-gray-blue: hsl(240, 78%, 98%);
+$lite-gray-blue: hsl(234, 14%, 74%);
+$gray-blue: hsl(233, 13%, 49%);
+$dark-gray-blue: hsl(232, 13%, 33%);
+
+@mixin d-flex($orient: row, $wrap: wrap, $justify:flex-start, $align:flex-start) {
+  display: flex;
+  flex-flow: $orient $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin p-reset() {
+  padding: 0;
+}
+
+@mixin m-reset() {
+  margin: 0;
+}
+
+@mixin box-reset() {
+  @include p-reset;
+  @include m-reset;
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.row {
+  @include d-flex(row, nowrap);
+}
+
+.column {
+  @include d-flex(column, nowrap);
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  color: $gray-blue;
+}
+
+body {
+  @include box-reset();
+  @include d-flex(column, nowrap, center, center);
+  height: 100vh;
+  width: 100%;
+  background-color: $v-lite-gray-blue;
+}
+
+.main {
+  @include d-flex(column, nowrap, center, center);
+}
+
+.background {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  > * {
+    position: fixed;
+  }
+
+  .bg-top-right {
+    top: 0;
+    right: 0;
+  }
+
+  .bg-bottom-left {
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.pricing-toggler-container {
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 64px;
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .toggle-name {
+    color: $lite-gray-blue;
+    &.selected {
+      color: $gray-blue;
+    }
+  }
+}
+
+.price-cards {
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.price-card {
+  width: 350px;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 50px 30px;
+  background-color: white;
+  min-height: 450px;
+  height: 450px;
+  z-index: 0;
+
+  hr {
+    height: 1px;
+    width: 100%;
+    background-color: $lite-gray-blue;
+    border: none;
+    opacity: 0.5;
+    &:last-of-type {
+      margin-bottom: 32px;
+    }
+  }
+
+
+  &.middle {
+    background: $primary-gradient;
+    height: 500px;
+    border-radius: 10px;
+    z-index: 1;
+    hr {
+      background: $v-lite-gray-blue;
+    }
+    * {
+      color: white;
+    }
+    .price {
+      color: white;
+    }
+  }
+  &.right {
+    border-radius: 0 10px 10px 0;
+    animation-name: slide-in-right;
+    animation-fill-mode: backwards;
+    animation-duration: 0.65s;
+    animation-timing-function: cubic-bezier(0.34, 0.24, 0.27, 1.55);
+
+  }
+  &.left {
+    border-radius: 10px 0 0 10px;
+    animation-name: slide-in-left;
+    animation-fill-mode: backwards;
+    animation-duration: 0.65s;
+    animation-timing-function: cubic-bezier(0.34, 0.24, 0.27, 1.55);
+  }
+
+  .price {
+    font-size: 4rem;
+    @include box-reset();
+    color: $dark-gray-blue;
+  }
+
+  .call-to-action {
+    width: 100%;
+    height: 45px;
+    padding: 14px auto;
+    border: none;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &.white {
+      color: $purple;
+      background: white;
+
+      &:hover {
+        border: 1px solid white;
+        color: white;
+        background: transparent;
+      }
+    }
+
+    &.purple {
+      background: $primary-gradient;
+      color: white;
+
+      &:hover {
+        border: 1px solid $purple;
+        color: $purple;
+        background: transparent;
+      }
+    }
+  }
+}
+
+.switch-box {
+  @include d-flex(row, nowrap, space-between, center);
+  margin-top: 10%;
+  width: 100%;
+  margin: 10% auto 0% auto;
+  .toggle-name {
+    margin: 0 15px;
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 32px;
+  cursor: pointer;
+
+
+  & input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  } 
+}
+
+input[type=checkbox]:checked + .slider {
+  &:before {
+    transform: translateX(32px);
+  }
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $primary-gradient;
+  transition: 0.3s;
+  border-radius: 16px;
+
+  &::before {
+    position: absolute;
+    content: "";
+    height:24px;
+    width: 24px;
+    top: 4px;
+    left: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .price-card {
+    width:270px;
+    .price {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .price-card {
+    width:230px;
+    .price {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .desktop {
+    display: none;
+  }
+
+  .background {
+    .bg-top-right {
+      left: 50%;
+    }
+  }
+  body {
+    height: auto;
+  }
+  .main {
+    width: 100%;
+    height: auto;
+  }
+
+  .pricing-toggler-container {
+    margin: 32px 0 64px 0;
+  }
+
+  .price-cards {
+    @include d-flex(column, nowrap, center, center);
+    width: 90%;
+    overflow: hidden;
+
+  }
+
+  .price-card {
+
+    &.left,
+    &.right,
+    &.middle {
+      height: 450px;
+      width: 100%;
+      border-radius: 10px;
+      animation-name: slide-in-right;
+      animation-duration: 0.6s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: backwards;
+      animation-delay: 0.3s;
+      margin-bottom: 32px;
+
+    }
+
+    &.middle {
+      animation-delay: 0.5s;
+    }
+
+    &.right {
+      animation-delay: 0.7s;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    .price {
+      font-size: 3.2rem;
+    }
+  }
+}

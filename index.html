@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | [Challenge Name Here]</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .attribution { font-size: 11px; text-align: center; max-width: 100%; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main">
+    <div class="background">
+      <img src="./images/bg-top.svg" alt="background" class="bg-top-right">
+      <img src="./images/bg-bottom.svg" alt="background" class="bg-bottom-left desktop">
+    </div>
+    <div class="row">
+      <div class="column pricing-toggler-container">
+        <h1>Our Pricing</h1>
+        <div class="row">
+          <div class="switch-box">
+            <span class="toggle-name">Annually</span>
+            <label class="switch">
+              <input            
+                type="checkbox" 
+                name="pricetoggle" 
+                id="toggleswitch"
+                checked
+              />
+              <span class="slider"></span>
+            </label>
+            <span class="selected toggle-name">Monthly</span>
+          </div> 
+        </div>
+      </div>
+    </div>
+    <div class="row price-cards">
+      <div class="column price-card left">
+        <h2>Basic</h2>
+        <h3 id="basic" class="price">&dollar;19.99</h3>
+        <hr>
+        <span class="feature">500 GB Storage</span>
+        <hr>
+        <span class="feature">2 Users Allowed</span>
+        <hr>
+        <span class="feature">Send up to 3 GB</span>
+        <hr>
+        <button class="call-to-action purple">Learn More</button>
+      </div>
+      <div class="column price-card middle">
+        <h2>Professional</h2>
+        <h3 id="professional" class="price">&dollar;24.99</h3>
+        <hr>
+        <span class="feature">1 TB Storage</span>
+        <hr>
+        <span class="feature">5 Users Allowed</span>
+        <hr>
+        <span class="feature">Send up to 10 GB</span>
+        <hr>
+        <button class="call-to-action white">Learn More</button>
+      </div>
+      <div class="column price-card right">
+        <h2>Master</h2>
+        <h3 id="master" class="price">&dollar;39.99</h3>
+        <hr>
+        <span class="feature">2 TB Storage</span>
+        <hr>
+        <span class="feature">10 Users Allowed</span>
+        <hr>
+        <span class="feature">Send up to 20 GB</span>
+        <hr>
+        <button class="call-to-action purple">Learn More</button>
+      </div>
+    </div>
+
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    <br>
+    Coded by <a href="https://christill.net">Chris Till</a>.
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>

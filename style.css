@@ -1,0 +1,436 @@
+@-webkit-keyframes slide-in-left {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes slide-in-right {
+  from {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #6d708d;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #f6f6fe;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.background {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+}
+
+.background > * {
+  position: fixed;
+}
+
+.background .bg-top-right {
+  top: 0;
+  right: 0;
+}
+
+.background .bg-bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.pricing-toggler-container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 64px;
+}
+
+.pricing-toggler-container h1 {
+  font-size: 2rem;
+}
+
+.pricing-toggler-container .toggle-name {
+  color: #b3b5c6;
+}
+
+.pricing-toggler-container .toggle-name.selected {
+  color: #6d708d;
+}
+
+.price-cards {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 64px;
+}
+
+.price-card {
+  width: 350px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 50px 30px;
+  background-color: white;
+  min-height: 450px;
+  height: 450px;
+  z-index: 0;
+}
+
+.price-card hr {
+  height: 1px;
+  width: 100%;
+  background-color: #b3b5c6;
+  border: none;
+  opacity: 0.5;
+}
+
+.price-card hr:last-of-type {
+  margin-bottom: 32px;
+}
+
+.price-card.middle {
+  background: -webkit-gradient(linear, left top, right bottom, from(#a3a8f0), color-stop(80%, #696fdd));
+  background: linear-gradient(to bottom right, #a3a8f0 0%, #696fdd 80%);
+  height: 500px;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.price-card.middle hr {
+  background: #f6f6fe;
+}
+
+.price-card.middle * {
+  color: white;
+}
+
+.price-card.middle .price {
+  color: white;
+}
+
+.price-card.right {
+  border-radius: 0 10px 10px 0;
+  -webkit-animation-name: slide-in-right;
+          animation-name: slide-in-right;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  -webkit-animation-duration: 0.65s;
+          animation-duration: 0.65s;
+  -webkit-animation-timing-function: cubic-bezier(0.34, 0.24, 0.27, 1.55);
+          animation-timing-function: cubic-bezier(0.34, 0.24, 0.27, 1.55);
+}
+
+.price-card.left {
+  border-radius: 10px 0 0 10px;
+  -webkit-animation-name: slide-in-left;
+          animation-name: slide-in-left;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  -webkit-animation-duration: 0.65s;
+          animation-duration: 0.65s;
+  -webkit-animation-timing-function: cubic-bezier(0.34, 0.24, 0.27, 1.55);
+          animation-timing-function: cubic-bezier(0.34, 0.24, 0.27, 1.55);
+}
+
+.price-card .price {
+  font-size: 4rem;
+  padding: 0;
+  margin: 0;
+  color: #494c5f;
+}
+
+.price-card .call-to-action {
+  width: 100%;
+  height: 45px;
+  padding: 14px auto;
+  border: none;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.price-card .call-to-action.white {
+  color: #696fdd;
+  background: white;
+}
+
+.price-card .call-to-action.white:hover {
+  border: 1px solid white;
+  color: white;
+  background: transparent;
+}
+
+.price-card .call-to-action.purple {
+  background: -webkit-gradient(linear, left top, right bottom, from(#a3a8f0), color-stop(80%, #696fdd));
+  background: linear-gradient(to bottom right, #a3a8f0 0%, #696fdd 80%);
+  color: white;
+}
+
+.price-card .call-to-action.purple:hover {
+  border: 1px solid #696fdd;
+  color: #696fdd;
+  background: transparent;
+}
+
+.switch-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10%;
+  width: 100%;
+  margin: 10% auto 0% auto;
+}
+
+.switch-box .toggle-name {
+  margin: 0 15px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+input[type=checkbox]:checked + .slider:before {
+  -webkit-transform: translateX(32px);
+          transform: translateX(32px);
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: -webkit-gradient(linear, left top, right bottom, from(#a3a8f0), color-stop(80%, #696fdd));
+  background: linear-gradient(to bottom right, #a3a8f0 0%, #696fdd 80%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border-radius: 16px;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  top: 4px;
+  left: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 1100px) {
+  .price-card {
+    width: 270px;
+  }
+  .price-card .price {
+    font-size: 2.5rem;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .price-card {
+    width: 230px;
+  }
+  .price-card .price {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .desktop {
+    display: none;
+  }
+  .background .bg-top-right {
+    left: 50%;
+  }
+  body {
+    height: auto;
+  }
+  .main {
+    width: 100%;
+    height: auto;
+  }
+  .pricing-toggler-container {
+    margin: 32px 0 64px 0;
+  }
+  .price-cards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 90%;
+    overflow: hidden;
+  }
+  .price-card.left, .price-card.right, .price-card.middle {
+    height: 450px;
+    width: 100%;
+    border-radius: 10px;
+    -webkit-animation-name: slide-in-right;
+            animation-name: slide-in-right;
+    -webkit-animation-duration: 0.6s;
+            animation-duration: 0.6s;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    -webkit-animation-fill-mode: backwards;
+            animation-fill-mode: backwards;
+    -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s;
+    margin-bottom: 32px;
+  }
+  .price-card.middle {
+    -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+  }
+  .price-card.right {
+    -webkit-animation-delay: 0.7s;
+            animation-delay: 0.7s;
+  }
+  .price-card h2 {
+    font-size: 1.2rem;
+  }
+  .price-card .price {
+    font-size: 3.2rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */
