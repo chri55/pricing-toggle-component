@@ -122,6 +122,9 @@ body {
   min-height: 450px;
   height: 450px;
   z-index: 0;
+  -webkit-box-shadow: 0px 0px 20px -16px $dark-gray-blue;
+  -moz-box-shadow: 0px 0px 20px -16px $dark-gray-blue;
+  box-shadow: 0px 0px 20px -16px $dark-gray-blue;
 
   hr {
     height: 1px;
